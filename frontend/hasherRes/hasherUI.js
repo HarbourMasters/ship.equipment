@@ -82,9 +82,9 @@ $(document).ready(function () {
         },
         progressBar: $$('#hash-progress'),
         progressBarMarker: $$('#hash-progress-marker'),
-        outputSummary: $$('#result-box-content'),
+        // outputSummary: $$('#result-box-content'),
         body: $$(document.body),
-        output: document.getElementById('hasher-output'),
+        // output: document.getElementById('hasher-output'),
     };
 
     // File drag and drop
@@ -221,37 +221,24 @@ function processRom(file) {
     hasher.getRomData(algoList, updateHashProgress).then(function (result) {
         isHashing = false;
         hideHashingModal();
-        ui.output.innerText += JSON.stringify(result, null, 4);
-        ui.outputSummary.text(createSummary(result));
-
-        // Grab random bits from RomData to show in the details panes
-        var romDetails = getRomDetails(result);
-        var hashDetails = result.hashes.map(function (hashItem) {
-            return {
-                label: (regNameLookup[hashItem.region.name] || hashItem.region.name) + ' ' + hashItem.algoName.toUpperCase(),
-                value: hashItem.value
-            };
-        });
-
-        // Grab additional 'extended data' to show in the detail panes
-        var hashDataExt = result.extendedData.filter(whereCategoryEquals('hashes'));
-        var headerDataExt = result.extendedData.filter(whereCategoryEquals('header'));
-        var romDataExt = result.extendedData.filter(whereCategoryEquals('rom'));
-
-        // Mash em together
-        hashDataExt.forEach(function (item) { hashDetails.push(item); });
-        romDataExt.forEach(function (item) { romDetails.push(item); });
-        debugger;
-
-        // Update detail panes
-        ui.detailHashes.empty().append(extDataToTable(hashDetails));
-        ui.detailHeader.empty().append(extDataToTable(headerDataExt));
-        ui.detailRom.empty().append(extDataToTable(romDetails));
 
         // Update file box
         ui.file.inputBoxOuter.addClass('file-loaded');
-        ui.file.statusIcon.addClass('supported');
-        ui.file.statusIcon.append(`<i class='fas fa-check-circle'></i>`);
+
+        // Update status icon
+        ui.file.statusIcon.empty();
+        ui.file.statusIcon.removeClass();
+        if (result.dbMatch.unknown) {
+            ui.file.statusIcon.addClass('unknown');
+            ui.file.statusIcon.append(`<i class='fas fa-question-circle' title='Unknown ROM'></i>`);
+        } else if (result.dbMatch.supported) {
+            ui.file.statusIcon.addClass('supported');
+            ui.file.statusIcon.append(`<i class='fas fa-check-circle' title='Supported ROM'></i>`);
+        } else {
+            ui.file.statusIcon.addClass('unsupported');
+            ui.file.statusIcon.append(`<i class='fas fa-times-circle' title='Unsupported ROM'></i>`);
+        }
+
         ui.file.gameName.text(file.name);
 
     })
@@ -293,33 +280,34 @@ var valOrNull = function (item) { return item ? item.value : null; };
 var formatHash = function (name, value) { return value ? name + ": " + value + "\n" : ""; };
 
 function createSummary(romData) {
-    var fileHash = valOrNull(romData.hashes.find(getHash('file', 'sha1')));
-    var romHash = valOrNull(romData.hashes.find(getHash('rom', 'sha1')));
+    return "blarg";
+    // var fileHash = valOrNull(romData.hashes.find(getHash('file', 'sha1')));
+    // var romHash = valOrNull(romData.hashes.find(getHash('rom', 'sha1')));
 
-    var dbString = "No database match.";
-    var dbMatch = "";
-    if (romData.dbInfo.name && romData.dbInfo.name !== 'not found') {
-        dbString = "Database: " + romData.dbInfo.name + " (v. " + romData.dbInfo.version + ")\n";
-        dbMatch = "Database match: " + romData.dbMatch + "\n";
-    }
+    // var dbString = "No database match.";
+    // var dbMatch = "";
+    // if (romData.dbInfo.name && romData.dbInfo.name !== 'not found') {
+    //     dbString = "Database: " + romData.dbInfo.name + " (v. " + romData.dbInfo.version + ")\n";
+    //     dbMatch = "Database match: " + romData.dbMatch + "\n";
+    // }
 
-    var outputString = "";
+    // var outputString = "";
 
-    outputString += dbMatch; // "Database match: " + romData.dbMatch + "\n";
-    outputString += dbString; // dbString + "\n";
+    // outputString += dbMatch; // "Database match: " + romData.dbMatch + "\n";
+    // outputString += dbString; // dbString + "\n";
 
-    var sha1matches = fileHash === romHash;
+    // var sha1matches = fileHash === romHash;
 
-    if (sha1matches) {
-        outputString += formatHash("File/ROM SHA-1", fileHash);
-    } else {
-        outputString += formatHash("File SHA-1", fileHash);
-    }
-    if (!sha1matches) {
-        outputString += formatHash("ROM SHA-1", romHash);
-    }
+    // if (sha1matches) {
+    //     outputString += formatHash("File/ROM SHA-1", fileHash);
+    // } else {
+    //     outputString += formatHash("File SHA-1", fileHash);
+    // }
+    // if (!sha1matches) {
+    //     outputString += formatHash("ROM SHA-1", romHash);
+    // }
 
-    return outputString;
+    // return outputString;
 }
 
 

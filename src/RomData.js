@@ -40,7 +40,11 @@ function RomData(rom, hashAlgos, progressCallback) {
     /** Name and version info regarding the database associated with the ROM's platform */
     this.dbInfo = { name: 'not found', version: 'not found' };
     /** Canonical name of the ROM, if found in the database */
-    this.dbMatch = 'not found';
+    this.dbMatch = {
+        shortName: "Unknown",
+        fullName: "Unknown ROM",
+        unknown: true
+    };
     /** A string representing the file format the ROM uses */
     this.format = plat.platform.getFormatName(rom);
 
@@ -99,7 +103,7 @@ function RomData(rom, hashAlgos, progressCallback) {
         })
         .then(entry => {
             if (entry) {
-                this.dbMatch = entry.fullName;
+                this.dbMatch = entry;
             }
         })
         .catch(console.error);

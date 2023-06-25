@@ -266,19 +266,19 @@
 
     #file-status-icon {
         font-size: 4.5em;
-        display: none;
     }
 
     #file-status-icon.supported {
         color: green;
-        display: block;
     }
 
-    /* .#file-status-icon. {
-        font-size: 4.5em;
-        color: green;
-        display: none;
-    } */
+    #file-status-icon.unsupported {
+        color: red;
+    }
+
+    #file-status-icon.unknown {
+        color: blue;
+    }
 
     .file-loaded #platform-icon {
         display: inline-block;
@@ -683,7 +683,7 @@
 
 /*** Misc ******************************************************/
 
-#hasher-output {
+/* #hasher-output {
     display: none;
-}
+} */
 
