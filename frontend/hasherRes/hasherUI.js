@@ -108,33 +108,14 @@ function populateRomList() {
             if (hash === 'meta' || hash === 'getEntry') continue;
             let entry = db[hash];
 
-        //     <span class='game-format game-optical'>
-        //     <i class='fas fa-compact-disc'></i>
-        // </span>
-        // <span class='game-format game-cart'>
-        //     <i class='fas fa-microchip'></i>
-        // </span>
-        // <span class='game-format game-digital'>
-        //     <i class='fas fa-cloud'></i>
-        // </span>
-        // <span class='game-format game-debug'>
-        //     <i class='fas fa-bug'></i>
-        // </span>
-        // <span class='game-format game-beta'>
-        //     <i class='fas fa-file-code'></i>
-        // </span>
-        // <span class='game-format game-hotel'>
-        //     <i class='fas fa-hotel'></i>
-        // </span>
-        // <span class='game-format game-builtin'>
-        //     <i class='fas fa-gamepad'></i>
-        // </span>
-
             ui.romList.append(`
                 <tr>
                     <td>${entry.shortName}</td>
-                    <td>${entry.supported}</td>
-                    <td>${entry.masterQuest}</td>
+                    <td>${entry.supported ? 
+                            `<i class='fas fa-check-circle' title='Supported' style='color: green;'></i>` :
+                            `<i class='fas fa-times-circle' title='Unsupported' style='color: red;'></i>`
+                    }</td>
+                    <td>${entry.masterQuest ? `<i class='fas fa-dice' title='Master Quest'></i>` : ''}</td>
                     <td class='rom-list-region'>${entry.region}</td>
                     <td>
                         ${entry.formats.includes('cart') ? `<i class='fas fa-microchip' title='N64 Cartridge'></i>` : ''}
@@ -148,8 +129,6 @@ function populateRomList() {
                     <td><i class='fas fa-chess-board' title='${hash}'></i></td>
                 </tr>
             `);
-            // let blarg = entry.formats.includes('optical');
-            // debugger;
         }
     })
 }
