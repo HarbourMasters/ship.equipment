@@ -241,6 +241,7 @@ function processRom(file) {
         // Mash em together
         hashDataExt.forEach(function (item) { hashDetails.push(item); });
         romDataExt.forEach(function (item) { romDetails.push(item); });
+        debugger;
 
         // Update detail panes
         ui.detailHashes.empty().append(extDataToTable(hashDetails));
