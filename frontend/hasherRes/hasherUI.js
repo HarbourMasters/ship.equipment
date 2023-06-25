@@ -67,23 +67,18 @@ function setClass(obj, state, className) {
 /** Page initialization */
 $(document).ready(function () {
     ui = {
-        btnRom: $$('#btn-rom'),
-        btnHeader: $$('#btn-header'),
-        btnHashes: $$('#btn-hashes'),
         detailRom: $$('#detail-rom'),
         detailHeader: $$('#detail-header'),
         detailHashes: $$('#detail-hashes'),
-        btnCopy: $$('#btn-copy'),
         fileInput: $$('#file-input'),
         fileInputBox: $$('#file-input-box'),
         abortHash: $$('#abort-hash'),
-        chkSha1: $$('#chk-sha1'),
         file: {
             input: $$('#file-input'),
             inputBox: $$('#file-input-box'),
             inputBoxOuter: $$('#file-input-outer'),
-            platformIcon: $$('#platform-icon'),
             gameName: $$('#game-name'),
+            statusIcon: $$('#file-status-icon'),
         },
         progressBar: $$('#hash-progress'),
         progressBarMarker: $$('#hash-progress-marker'),
@@ -91,15 +86,6 @@ $(document).ready(function () {
         body: $$(document.body),
         output: document.getElementById('hasher-output'),
     };
-
-    // tab selection
-    ui.btnRom.on('click', function () { selectDetailTab(ui.btnRom, ui.detailRom); });
-    ui.btnHashes.on('click', function () { selectDetailTab(ui.btnHashes, ui.detailHashes); });
-    ui.btnHeader.on('click', function () { selectDetailTab(ui.btnHeader, ui.detailHeader); });
-    ui.btnCopy.on('click', function () {
-        copyText(ui.outputSummary.text());
-        ui.btnCopy.blur();
-    });
 
     // File drag and drop
     ui.fileInputBox.on('drop', onFileDrop);
@@ -229,7 +215,7 @@ function processRom(file) {
     isHashing = true;
     displayHashingModal();
 
-    var sha1Only = ui.chkSha1[0].checked;
+    var sha1Only = true;
     var algoList = sha1Only ? ['sha1'] : null;
     hasher = new Hasher(file);
     hasher.getRomData(algoList, updateHashProgress).then(function (result) {
@@ -263,7 +249,8 @@ function processRom(file) {
 
         // Update file box
         ui.file.inputBoxOuter.addClass('file-loaded');
-        ui.file.platformIcon.attr('src', 'hasherRes/' + result.platform.name + '.png');
+        ui.file.statusIcon.addClass('supported');
+        ui.file.statusIcon.append(`<i class='fas fa-check-circle'></i>`);
         ui.file.gameName.text(file.name);
 
     })
@@ -307,8 +294,6 @@ var formatHash = function (name, value) { return value ? name + ": " + value + "
 function createSummary(romData) {
     var fileHash = valOrNull(romData.hashes.find(getHash('file', 'sha1')));
     var romHash = valOrNull(romData.hashes.find(getHash('rom', 'sha1')));
-    var fileHashCrc = valOrNull(romData.hashes.find(getHash('file', 'crc32')));
-    var romHashCrc = valOrNull(romData.hashes.find(getHash('rom', 'crc32')));
 
     var dbString = "No database match.";
     var dbMatch = "";
@@ -323,23 +308,14 @@ function createSummary(romData) {
     outputString += dbString; // dbString + "\n";
 
     var sha1matches = fileHash === romHash;
-    var crc32matches = fileHashCrc === romHashCrc;
 
     if (sha1matches) {
         outputString += formatHash("File/ROM SHA-1", fileHash);
     } else {
         outputString += formatHash("File SHA-1", fileHash);
     }
-    if (crc32matches) {
-        outputString += formatHash("File/ROM CRC32", fileHashCrc);
-    } else {
-        outputString += formatHash("File CRC32", fileHashCrc);
-    }
     if (!sha1matches) {
         outputString += formatHash("ROM SHA-1", romHash);
-    }
-    if (!crc32matches) {
-        outputString += formatHash("ROM CRC32", romHashCrc);
     }
 
     return outputString;

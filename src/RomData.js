@@ -72,7 +72,7 @@ function RomData(rom, hashAlgos, progressCallback) {
             this.hashes = [];
         });
     
-    var dbGetPromise = romDb(this.platform.name)
+    var dbGetPromise = romDb('soh')
         .catch(err => {
             console.error(err);
             return null;
@@ -91,14 +91,16 @@ function RomData(rom, hashAlgos, progressCallback) {
                 var hashRegion = db.meta.hashContent;
                 var rom_sha1 = this.hashes.find(hash => hash.algoName === 'sha1' && hash.region.name === hashRegion);
                 if (rom_sha1) {
-                    return db.getTitle(rom_sha1.value);
+                    return db.getEntry(rom_sha1.value);
                 }
             }
             
             return null;
         })
-        .then(title => {
-            if(title) this.dbMatch = title;
+        .then(entry => {
+            if (entry) {
+                this.dbMatch = entry.fullName;
+            }
         })
         .catch(console.error);
 

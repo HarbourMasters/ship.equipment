@@ -181,9 +181,6 @@
 /*** File Drop *************************************************/
 
     #file-input-outer {
-        display: inline-block;    
-        width: 202px;
-        height: 202px;
         vertical-align: top;
 
         text-align: center;
@@ -201,7 +198,7 @@
     #file-input-box {
         display: inline-block;
         position: relative;
-        width: 184px;
+        width: calc(100% - 16px);
         height: 184px;
         margin: 8px;
 
@@ -266,6 +263,22 @@
         overflow: hidden;
         max-height: 75px;
     }
+
+    #file-status-icon {
+        font-size: 4.5em;
+        display: none;
+    }
+
+    #file-status-icon.supported {
+        color: green;
+        display: block;
+    }
+
+    /* .#file-status-icon. {
+        font-size: 4.5em;
+        color: green;
+        display: none;
+    } */
 
     .file-loaded #platform-icon {
         display: inline-block;

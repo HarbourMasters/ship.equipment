@@ -14,7 +14,7 @@ var dbNameValidator = /^[a-zA-Z0-9 ]*$/;
 
 /**
  * @typedef {Object} RomDB
- * @property {function(string): Promise<string>} getTitle
+ * @property {function(string): Promise<string>} getEntry
  */
 
 /** Returns a promise that resolves to a RomDB.
@@ -36,7 +36,7 @@ function getDB(name) {
         .then(response => {
             if (response.status == 200) {
                 db = response.data;
-                db.getTitle = getTitle;
+                db.getEntry = getEntry;
                 return db;
             } else {
                 return Promise.reject(new Error('Received a status of ' + response.status + ' requesting the database'));
@@ -46,12 +46,12 @@ function getDB(name) {
 
 
 /** Method on ROM DB. Returns a promise that
- * resolves to the title associated with the given ROM hash, or null if not found.
+ * resolves to the entry associated with the given ROM hash, or null if not found.
  * Does not reject.
  *  @param {*} sha1_hex
  *  @returns {Promise<string>}
  */
-function getTitle(sha1_hex) {
+function getEntry(sha1_hex) {
     return Promise.resolve(this[sha1_hex.toUpperCase()] || null);
 }
 
