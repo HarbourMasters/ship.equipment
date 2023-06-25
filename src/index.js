@@ -27,6 +27,7 @@
 
 import RomData from './RomData';
 import Rom from './Rom';
+import romDb from './romDb';
 import { HexValue } from './util';
 
 /** Creates an object that can produce metadata for a ROM file
@@ -35,8 +36,10 @@ import { HexValue } from './util';
  */
 class Hasher {
     constructor(romFile) {
-        this._rom = new Rom(romFile);
-        this._cancel = null;
+        if (romFile !== null) {
+            this._rom = new Rom(romFile);
+            this._cancel = null;
+        }
     }
 
     /** Begins processing the ROM. Returns a promise that resolves to a
@@ -64,6 +67,16 @@ class Hasher {
         promise.then(() => this._cancel = null);
 
         return promise;
+    }
+
+    getRomDb() {
+        var dbGetPromise = romDb('soh')
+        .catch(err => {
+            console.error(err);
+            return null;
+        });
+
+        return dbGetPromise;
     }
 
     cancel() {

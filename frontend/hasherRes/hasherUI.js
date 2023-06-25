@@ -79,6 +79,7 @@ $(document).ready(function () {
         },
         progressBar: $$('#hash-progress'),
         progressBarMarker: $$('#hash-progress-marker'),
+        romList: $$('#rom-list-body'),
         body: $$(document.body),
     };
 
@@ -95,7 +96,63 @@ $(document).ready(function () {
 
     // 'Cancel' button
     ui.abortHash.on('click', function (ev) { hasher.cancel(); });
+
+    populateRomList();
 });
+
+function populateRomList() {
+    hasher = new Hasher(null);
+    hasher.getRomDb().then(db => {
+        ui.romList.empty();
+        for (let hash of Object.keys(db)) {
+            if (hash === 'meta' || hash === 'getEntry') continue;
+            let entry = db[hash];
+
+        //     <span class='game-format game-optical'>
+        //     <i class='fas fa-compact-disc'></i>
+        // </span>
+        // <span class='game-format game-cart'>
+        //     <i class='fas fa-microchip'></i>
+        // </span>
+        // <span class='game-format game-digital'>
+        //     <i class='fas fa-cloud'></i>
+        // </span>
+        // <span class='game-format game-debug'>
+        //     <i class='fas fa-bug'></i>
+        // </span>
+        // <span class='game-format game-beta'>
+        //     <i class='fas fa-file-code'></i>
+        // </span>
+        // <span class='game-format game-hotel'>
+        //     <i class='fas fa-hotel'></i>
+        // </span>
+        // <span class='game-format game-builtin'>
+        //     <i class='fas fa-gamepad'></i>
+        // </span>
+
+            ui.romList.append(`
+                <tr>
+                    <td>${entry.shortName}</td>
+                    <td>${entry.supported}</td>
+                    <td>${entry.masterQuest}</td>
+                    <td class='rom-list-region'>${entry.region}</td>
+                    <td>
+                        ${entry.formats.includes('cart') ? `<i class='fas fa-microchip' title='N64 Cartridge'></i>` : ''}
+                        ${entry.formats.includes('optical') ? `<i class='fas fa-compact-disc' title='GameCube Optical Disc'></i>` : ''}
+                        ${entry.formats.includes('digital') ? `<i class='fas fa-cloud' title='Virtual Console Download'></i>` : ''}
+                        ${entry.formats.includes('debug') ? `<i class='fas fa-bug' title='Debug'></i>` : ''}
+                        ${entry.formats.includes('beta') ? `<i class='fas fa-file-code' title='Beta'></i>` : ''}
+                        ${entry.formats.includes('builtin') ? `<i class='fas fa-gamepad' title='iQue'></i>` : ''}
+                        ${entry.formats.includes('hotel') ? `<i class='fas fa-hotel' title='LodgeNet'></i>` : ''}
+                    </td>
+                    <td><i class='fas fa-chess-board' title='${hash}'></i></td>
+                </tr>
+            `);
+            // let blarg = entry.formats.includes('optical');
+            // debugger;
+        }
+    })
+}
 
 /** Handles the selection of a file via the file dialog */
 function onFileSelected(e) {

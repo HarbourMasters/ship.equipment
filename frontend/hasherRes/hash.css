@@ -303,6 +303,46 @@
         left: 10%;
     }
 
+    #rom-list {
+        width: 100%;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        color: rgb(31, 35, 40);
+        margin-top: 10px;
+    }
+
+    #rom-list th {
+        font-weight: 600;
+    }
+
+    #rom-list th, #rom-list td {
+        padding: 10px;
+        border: 1px solid #d0d7de;
+    }
+
+    #rom-list tbody tr:nth-of-type(even) {
+        background-color: rgb(246, 248, 250);
+    }
+
+    .rom-list-sha {
+        /* font-size: x-small; */
+        font-family: mono;
+        padding: .2em .4em;
+        margin: 0;
+        font-size: 85%;
+        white-space: break-spaces;
+        background-color: rgba(175, 184, 193, 0.2);
+        border-radius: 6px;
+    }
+
+    .rom-list-region {
+        font-size: x-large;
+        padding: 0px !important;
+    }
+
+    .rom-list-match {
+        background-color: rgba(92, 255, 0, 0.17);
+    }
 
 /*** Modals ****************************************************/
 
