@@ -5,6 +5,14 @@
     "hashContent": "rom",
     "comment": "SoH supported/unsupported as of Sulu Alfa"
 },
+"328A1F1BEBA30CE5E178F031662019EB32C5F3B5": {
+    "shortName": "PAL 1.0",
+    "fullName": "Legend of Zelda, The - Ocarina of Time (Europe) (En,Fr,De)",
+    "supported": false,
+    "formats": ["cart"],
+    "region": "🇪🇺",
+    "masterQuest": false
+},
 "CFBB98D392E4A9D39DA8285D10CBEF3974C2F012": {
     "shortName": "PAL 1.1",
     "fullName": "Legend of Zelda, The - Ocarina of Time (Europe) (En,Fr,De) (Rev 1)",
@@ -19,6 +27,102 @@
     "supported": true,
     "formats": ["optical"],
     "region": "🇪🇺",
+    "masterQuest": false
+},
+"F46239439F59A2A594EF83CF68EF65043B1BFFE2": {
+    "shortName": "PAL MQ",
+    "fullName": "Legend of Zelda, The - Ocarina of Time - Master Quest (Europe) (GameCube)",
+    "supported": false,
+    "formats": ["optical"],
+    "region": "🇪🇺",
+    "masterQuest": true
+},
+"AD69C91157F6705E8AB06C79FE08AAD47BB57BA7": {
+    "shortName": "NTSC-U 1.0",
+    "fullName": "Legend of Zelda, The - Ocarina of Time (USA)",
+    "supported": false,
+    "formats": ["cart"],
+    "region": "🇺🇸",
+    "masterQuest": false
+},
+"D3ECB253776CD847A5AA63D859D8C89A2F37B364": {
+    "shortName": "NTSC-U 1.1",
+    "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (Rev 1)",
+    "supported": false,
+    "formats": ["cart"],
+    "region": "🇺🇸",
+    "masterQuest": false
+},
+"41B3BDC48D98C48529219919015A1AF22F5057C2": {
+    "shortName": "NTSC-U 1.2",
+    "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (Rev 2)",
+    "supported": false,
+    "formats": ["cart", "digital"],
+    "region": "🇺🇸",
+    "masterQuest": false
+},
+"B82710BA2BD3B4C6EE8AA1A7E9ACF787DFC72E9B": {
+    "shortName": "NTSC-U GC",
+    "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (GameCube)",
+    "supported": false,
+    "formats": ["optical"],
+    "region": "🇺🇸",
+    "masterQuest": false
+},
+"8B5D13AAC69BFBF989861CFDC50B1D840945FC1D": {
+    "shortName": "NTSC-U MQ",
+    "fullName": "Legend of Zelda, The - Ocarina of Time - Master Quest (USA) (GameCube)",
+    "supported": false,
+    "formats": ["optical"],
+    "region": "🇺🇸",
+    "masterQuest": true
+},
+"C892BBDA3993E66BD0D56A10ECD30B1EE612210F": {
+    "shortName": "NTSC-J 1.0",
+    "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan)",
+    "supported": false,
+    "formats": ["cart"],
+    "region": "🇯🇵",
+    "masterQuest": false
+},
+"DBFC81F655187DC6FEFD93FA6798FACE770D579D": {
+    "shortName": "NTSC-J 1.1",
+    "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan) (Rev 1)",
+    "supported": false,
+    "formats": ["cart"],
+    "region": "🇯🇵",
+    "masterQuest": false
+},
+"FA5F5942B27480D60243C2D52C0E93E26B9E6B86": {
+    "shortName": "NTSC-J 1.2",
+    "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan) (Rev 2)",
+    "supported": false,
+    "formats": ["cart", "digital"],
+    "region": "🇯🇵",
+    "masterQuest": false
+},
+"0769C84615422D60F16925CD859593CDFA597F84": {
+    "shortName": "NTSC-J GC",
+    "fullName": "Zelda no Densetsu - Toki no Ocarina GC (Japan) (GameCube)",
+    "supported": false,
+    "formats": ["optical"],
+    "region": "🇯🇵",
+    "masterQuest": false
+},
+"DD14E143C4275861FE93EA79D0C02E36AE8C6C2F": {
+    "shortName": "NTSC-J MQ",
+    "fullName": "Zelda no Densetsu - Toki no Ocarina GC Ura (Japan) (GameCube)",
+    "supported": false,
+    "formats": ["optical"],
+    "region": "🇯🇵",
+    "masterQuest": true
+},
+"2CE2D1A9F0534C9CD9FA04EA5317B80DA21E5E73": {
+    "shortName": "NTSC-J GC (Collection)",
+    "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan) (GameCube, Zelda Collection)",
+    "supported": false,
+    "formats": ["optical"],
+    "region": "🇯🇵",
     "masterQuest": false
 },
 "CEE6BC3C2A634B41728F2AF8DA54D9BF8CC14099": {
@@ -53,46 +157,6 @@
     "region": "🇪🇺",
     "masterQuest": true
 },
-"328A1F1BEBA30CE5E178F031662019EB32C5F3B5": {
-    "shortName": "PAL 1.0",
-    "fullName": "Legend of Zelda, The - Ocarina of Time (Europe) (En,Fr,De)",
-    "supported": false,
-    "formats": ["cart"],
-    "region": "🇪🇺",
-    "masterQuest": false
-},
-"AD69C91157F6705E8AB06C79FE08AAD47BB57BA7": {
-    "shortName": "NTSC-U 1.0",
-    "fullName": "Legend of Zelda, The - Ocarina of Time (USA)",
-    "supported": false,
-    "formats": ["cart"],
-    "region": "🇺🇸",
-    "masterQuest": false
-},
-"D3ECB253776CD847A5AA63D859D8C89A2F37B364": {
-    "shortName": "NTSC-U 1.1",
-    "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (Rev 1)",
-    "supported": false,
-    "formats": ["cart"],
-    "region": "🇺🇸",
-    "masterQuest": false
-},
-"41B3BDC48D98C48529219919015A1AF22F5057C2": {
-    "shortName": "NTSC-U 1.2",
-    "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (Rev 2)",
-    "supported": false,
-    "formats": ["cart", "digital"],
-    "region": "🇺🇸",
-    "masterQuest": false
-},
-"B82710BA2BD3B4C6EE8AA1A7E9ACF787DFC72E9B": {
-    "shortName": "NTSC-U GC",
-    "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (GameCube)",
-    "supported": false,
-    "formats": ["optical"],
-    "region": "🇺🇸",
-    "masterQuest": false
-},
 "70537A3144C8813B115252C40065C117CB139DCD": {
     "shortName": "NTSC-U (Beta)",
     "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (Beta)",
@@ -100,22 +164,6 @@
     "formats": ["beta"],
     "region": "🇺🇸",
     "masterQuest": false
-},
-"8B5D13AAC69BFBF989861CFDC50B1D840945FC1D": {
-    "shortName": "NTSC-U MQ",
-    "fullName": "Legend of Zelda, The - Ocarina of Time - Master Quest (USA) (GameCube)",
-    "supported": false,
-    "formats": ["optical"],
-    "region": "🇺🇸",
-    "masterQuest": true
-},
-"F46239439F59A2A594EF83CF68EF65043B1BFFE2": {
-    "shortName": "PAL MQ",
-    "fullName": "Legend of Zelda, The - Ocarina of Time - Master Quest (Europe) (GameCube)",
-    "supported": false,
-    "formats": ["optical"],
-    "region": "🇪🇺",
-    "masterQuest": true
 },
 "1015D0F3AF34B89149BFD773580BBC66466AF54E": {
     "shortName": "iQue",
@@ -132,54 +180,6 @@
     "formats": ["builtin"],
     "region": "🇨🇳",
     "masterQuest": false
-},
-"C892BBDA3993E66BD0D56A10ECD30B1EE612210F": {
-    "shortName": "NTSC-J 1.0",
-    "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan)",
-    "supported": false,
-    "formats": ["cart"],
-    "region": "🇯🇵",
-    "masterQuest": false
-},
-"DBFC81F655187DC6FEFD93FA6798FACE770D579D": {
-    "shortName": "NTSC-J 1.1",
-    "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan) (Rev 1)",
-    "supported": false,
-    "formats": ["cart"],
-    "region": "🇯🇵",
-    "masterQuest": false
-},
-"FA5F5942B27480D60243C2D52C0E93E26B9E6B86": {
-    "shortName": "NTSC-J 1.2",
-    "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan) (Rev 2)",
-    "supported": false,
-    "formats": ["cart", "digital"],
-    "region": "🇯🇵",
-    "masterQuest": false
-},
-"0769C84615422D60F16925CD859593CDFA597F84": {
-    "shortName": "NTSC-J GC",
-    "fullName": "Zelda no Densetsu - Toki no Ocarina GC (Japan) (GameCube)",
-    "supported": false,
-    "formats": ["optical"],
-    "region": "🇯🇵",
-    "masterQuest": false
-},
-"2CE2D1A9F0534C9CD9FA04EA5317B80DA21E5E73": {
-    "shortName": "NTSC-J GC (Collection)",
-    "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan) (GameCube, Zelda Collection)",
-    "supported": false,
-    "formats": ["optical"],
-    "region": "🇯🇵",
-    "masterQuest": false
-},
-"DD14E143C4275861FE93EA79D0C02E36AE8C6C2F": {
-    "shortName": "NTSC-J MQ",
-    "fullName": "Zelda no Densetsu - Toki no Ocarina GC Ura (Japan) (GameCube)",
-    "supported": false,
-    "formats": ["optical"],
-    "region": "🇯🇵",
-    "masterQuest": true
 },
 "86FF85565E0E4F78D56F50E73DF51BA29D36738A": {
     "shortName": "LodgeNet",

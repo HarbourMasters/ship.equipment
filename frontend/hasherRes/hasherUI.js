@@ -110,7 +110,7 @@ function populateRomList() {
 
             ui.romList.append(`
                 <tr>
-                    <td>${entry.shortName}</td>
+                    <td title='${entry.fullName}'>${entry.shortName}</td>
                     <td>${entry.supported ? 
                             `<i class='fas fa-check-circle' title='Supported' style='color: green;'></i>` :
                             `<i class='fas fa-times-circle' title='Unsupported' style='color: red;'></i>`
