@@ -341,7 +341,7 @@
     }
 
     .rom-list-match {
-        background-color: rgba(92, 255, 0, 0.17);
+        background-color: rgba(92, 255, 0, 0.17) !important;
     }
 
 /*** Modals ****************************************************/

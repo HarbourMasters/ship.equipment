@@ -109,7 +109,7 @@ function populateRomList() {
             let entry = db[hash];
 
             ui.romList.append(`
-                <tr>
+                <tr id='rom-list-entry-${hash}'>
                     <td title='${entry.fullName}'>${entry.shortName}</td>
                     <td>${entry.supported ? 
                             `<i class='fas fa-check-circle' title='Supported' style='color: green;'></i>` :
@@ -238,6 +238,15 @@ function processRom(file) {
         } else {
             ui.file.statusIcon.addClass('unsupported');
             ui.file.statusIcon.append(`<i class='fas fa-times-circle' title='Unsupported ROM'></i>`);
+        }
+
+        // Clear any highlights from table
+        $('.rom-list-match').removeClass('rom-list-match');
+
+        // Highlight matching rom in table
+        let hash = result.hashes.find(hash => hash.algoName === 'sha1' && hash.region.name === 'rom');
+        if (hash !== undefined) {
+            $(`#rom-list-entry-${hash.value}`).addClass('rom-list-match');
         }
 
         ui.file.gameName.text(file.name);
