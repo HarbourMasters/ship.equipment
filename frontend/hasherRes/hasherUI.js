@@ -67,9 +67,6 @@ function setClass(obj, state, className) {
 /** Page initialization */
 $(document).ready(function () {
     ui = {
-        detailRom: $$('#detail-rom'),
-        detailHeader: $$('#detail-header'),
-        detailHashes: $$('#detail-hashes'),
         fileInput: $$('#file-input'),
         fileInputBox: $$('#file-input-box'),
         abortHash: $$('#abort-hash'),
@@ -82,9 +79,7 @@ $(document).ready(function () {
         },
         progressBar: $$('#hash-progress'),
         progressBarMarker: $$('#hash-progress-marker'),
-        // outputSummary: $$('#result-box-content'),
         body: $$(document.body),
-        // output: document.getElementById('hasher-output'),
     };
 
     // File drag and drop
@@ -144,35 +139,6 @@ function onDragEnd(ev) {
 
 ///////////////////// UI Manipulation ////////////////////////////////////////
 
-
-/** Selects the specified tab and tab page
- *  @param {*} tab jQuery object representing the tab
- *  @param {*} content jQuery object representing the tab page
- */
-function selectDetailTab(tab, content) {
-    // Select specified tab
-    setClass(ui.btnRom, ui.btnRom == tab, 'tab-item-select');
-    setClass(ui.btnHeader, ui.btnHeader == tab, 'tab-item-select');
-    setClass(ui.btnHashes, ui.btnHashes == tab, 'tab-item-select');
-
-    // Select specified tab page
-    setClass(ui.detailRom, ui.detailRom == content, 'detail-box-content-selected');
-    setClass(ui.detailHashes, ui.detailHashes == content, 'detail-box-content-selected');
-    setClass(ui.detailHeader, ui.detailHeader == content, 'detail-box-content-selected');
-}
-
-/** Copies the specified text to the clipboard
- *  @param {string} text 
- */
-function copyText(text) {
-    var textContainer = $('<textarea>').addClass('clipboard-container');
-    ui.body.append(textContainer);
-    textContainer.val(text);
-    textContainer.select();
-    document.execCommand('copy');
-    textContainer.remove();
-}
-
 /** Prompts the display the hashing progress modal. */
 function displayHashingModal() {
     // The modal does not actually become visible until after a short period so
@@ -210,7 +176,6 @@ function updateHashProgress(amt) {
 
 ///////////////////// ROM Processing /////////////////////////////////////////
 
-
 function processRom(file) {
     isHashing = true;
     displayHashingModal();
@@ -243,85 +208,4 @@ function processRom(file) {
 
     })
         .catch(console.error);
-}
-
-/** 
- * Returns a predicate function that matches objects with a category property that
- * matches the specified value.
- */
-function whereCategoryEquals(category) {
-    return function (item) {
-        return item.category === category;
-    };
-}
-
-
-/**
- * Gets an array of {label: string, category: "rom", value: string} objects
- * @param {*} romData 
- */
-function getRomDetails(romData) {
-    var result = [];
-
-    var fileSize = romData.hashes.find(function (hash) { return hash.region.name === 'file'; }).region.length;
-    var romSize = romData.hashes.find(function (hash) { return hash.region.name === 'rom'; }).region.length;
-
-    result.push({ label: "Platform", value: romData.platform.longName });
-    result.push({ label: "Format", value: romData.format });
-    result.push({ label: "External Header", value: romData.hasExternalHeader });
-    result.push({ label: "File size", value: fileSize + ' ($' + fileSize.toString(16) + ")" });
-    result.push({ label: "Rom size", value: romSize + ' ($' + romSize.toString(16) + ")" });
-
-    return result;
-}
-
-var getHash = function (region, algo) { return function (item) { return item.region.name === region && item.algoName === algo; }; };
-var valOrNull = function (item) { return item ? item.value : null; };
-var formatHash = function (name, value) { return value ? name + ": " + value + "\n" : ""; };
-
-function createSummary(romData) {
-    return "blarg";
-    // var fileHash = valOrNull(romData.hashes.find(getHash('file', 'sha1')));
-    // var romHash = valOrNull(romData.hashes.find(getHash('rom', 'sha1')));
-
-    // var dbString = "No database match.";
-    // var dbMatch = "";
-    // if (romData.dbInfo.name && romData.dbInfo.name !== 'not found') {
-    //     dbString = "Database: " + romData.dbInfo.name + " (v. " + romData.dbInfo.version + ")\n";
-    //     dbMatch = "Database match: " + romData.dbMatch + "\n";
-    // }
-
-    // var outputString = "";
-
-    // outputString += dbMatch; // "Database match: " + romData.dbMatch + "\n";
-    // outputString += dbString; // dbString + "\n";
-
-    // var sha1matches = fileHash === romHash;
-
-    // if (sha1matches) {
-    //     outputString += formatHash("File/ROM SHA-1", fileHash);
-    // } else {
-    //     outputString += formatHash("File SHA-1", fileHash);
-    // }
-    // if (!sha1matches) {
-    //     outputString += formatHash("ROM SHA-1", romHash);
-    // }
-
-    // return outputString;
-}
-
-
-function extDataToTable(extData) {
-    var table = $('<table>');
-    extData.forEach(function (entry) {
-        var value = entry.value;
-        if (value === 'true' || value === true) value = "Yes";
-        if (value === 'false' || value === false) value = "No";
-        var row = $('<tr>');
-        row.append($('<td>').text(entry.label));
-        row.append($('<td>').text(value));
-        table.append(row);
-    });
-
-    return table;
 }
