@@ -336,8 +336,13 @@
     }
 
     .rom-list-region {
-        font-size: x-large;
         padding: 0px !important;
+        vertical-align: middle;
+    }
+
+    .rom-list-region img {
+        height: 32px;
+        margin-top: 4px;
     }
 
     .rom-list-match {

@@ -116,7 +116,7 @@ function populateRomList() {
                             `<i class='fas fa-times-circle' title='Unsupported' style='color: red;'></i>`
                     }</td>
                     <td>${entry.masterQuest ? `<i class='fas fa-dice' title='Master Quest'></i>` : ''}</td>
-                    <td class='rom-list-region'>${entry.region}</td>
+                    <td class='rom-list-region'><img title='${entry.region}' src='hasherRes/${entry.region}.svg'></td>
                     <td>
                         ${entry.formats.includes('cart') ? `<i class='fas fa-microchip' title='N64 Cartridge'></i>` : ''}
                         ${entry.formats.includes('optical') ? `<i class='fas fa-compact-disc' title='GameCube Optical Disc'></i>` : ''}

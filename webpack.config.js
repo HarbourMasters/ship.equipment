@@ -31,8 +31,11 @@ module.exports = {
                 query: {
                     presets: ['es2015']
                 }
-            }
-
+            },
+            {
+                test: /\.svg$/,
+                loader: 'file-loader',
+            },
         ]
     },
     node: {
