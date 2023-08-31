@@ -32,7 +32,7 @@
 "F46239439F59A2A594EF83CF68EF65043B1BFFE2": {
     "shortName": "PAL MQ",
     "fullName": "Legend of Zelda, The - Ocarina of Time - Master Quest (Europe) (GameCube)",
-    "supported": false,
+    "supported": true,
     "formats": ["optical"],
     "region": "PAL",
     "masterQuest": true
