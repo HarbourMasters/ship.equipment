@@ -8,7 +8,7 @@
 "328A1F1BEBA30CE5E178F031662019EB32C5F3B5": {
     "shortName": "PAL 1.0",
     "fullName": "Legend of Zelda, The - Ocarina of Time (Europe) (En,Fr,De)",
-    "supported": false,
+    "supported": true,
     "formats": ["cart"],
     "region": "PAL",
     "masterQuest": false
@@ -32,7 +32,7 @@
 "F46239439F59A2A594EF83CF68EF65043B1BFFE2": {
     "shortName": "PAL MQ",
     "fullName": "Legend of Zelda, The - Ocarina of Time - Master Quest (Europe) (GameCube)",
-    "supported": false,
+    "supported": true,
     "formats": ["optical"],
     "region": "PAL",
     "masterQuest": true
