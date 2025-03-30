@@ -40,7 +40,7 @@
 "AD69C91157F6705E8AB06C79FE08AAD47BB57BA7": {
     "shortName": "NTSC-U 1.0",
     "fullName": "Legend of Zelda, The - Ocarina of Time (USA)",
-    "supported": false,
+    "supported": true,
     "formats": ["cart"],
     "region": "NTSC-U",
     "masterQuest": false
@@ -48,7 +48,7 @@
 "D3ECB253776CD847A5AA63D859D8C89A2F37B364": {
     "shortName": "NTSC-U 1.1",
     "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (Rev 1)",
-    "supported": false,
+    "supported": true,
     "formats": ["cart"],
     "region": "NTSC-U",
     "masterQuest": false
@@ -56,7 +56,7 @@
 "41B3BDC48D98C48529219919015A1AF22F5057C2": {
     "shortName": "NTSC-U 1.2",
     "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (Rev 2)",
-    "supported": false,
+    "supported": true,
     "formats": ["cart", "digital"],
     "region": "NTSC-U",
     "masterQuest": false
@@ -64,7 +64,7 @@
 "B82710BA2BD3B4C6EE8AA1A7E9ACF787DFC72E9B": {
     "shortName": "NTSC-U GC",
     "fullName": "Legend of Zelda, The - Ocarina of Time (USA) (GameCube)",
-    "supported": false,
+    "supported": true,
     "formats": ["optical"],
     "region": "NTSC-U",
     "masterQuest": false
@@ -72,7 +72,7 @@
 "8B5D13AAC69BFBF989861CFDC50B1D840945FC1D": {
     "shortName": "NTSC-U MQ",
     "fullName": "Legend of Zelda, The - Ocarina of Time - Master Quest (USA) (GameCube)",
-    "supported": false,
+    "supported": true,
     "formats": ["optical"],
     "region": "NTSC-U",
     "masterQuest": true
@@ -80,7 +80,7 @@
 "C892BBDA3993E66BD0D56A10ECD30B1EE612210F": {
     "shortName": "NTSC-J 1.0",
     "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan)",
-    "supported": false,
+    "supported": true,
     "formats": ["cart"],
     "region": "NTSC-J",
     "masterQuest": false
@@ -88,7 +88,7 @@
 "DBFC81F655187DC6FEFD93FA6798FACE770D579D": {
     "shortName": "NTSC-J 1.1",
     "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan) (Rev 1)",
-    "supported": false,
+    "supported": true,
     "formats": ["cart"],
     "region": "NTSC-J",
     "masterQuest": false
@@ -96,7 +96,7 @@
 "FA5F5942B27480D60243C2D52C0E93E26B9E6B86": {
     "shortName": "NTSC-J 1.2",
     "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan) (Rev 2)",
-    "supported": false,
+    "supported": true,
     "formats": ["cart", "digital"],
     "region": "NTSC-J",
     "masterQuest": false
@@ -104,7 +104,7 @@
 "0769C84615422D60F16925CD859593CDFA597F84": {
     "shortName": "NTSC-J GC",
     "fullName": "Zelda no Densetsu - Toki no Ocarina GC (Japan) (GameCube)",
-    "supported": false,
+    "supported": true,
     "formats": ["optical"],
     "region": "NTSC-J",
     "masterQuest": false
@@ -112,7 +112,7 @@
 "DD14E143C4275861FE93EA79D0C02E36AE8C6C2F": {
     "shortName": "NTSC-J MQ",
     "fullName": "Zelda no Densetsu - Toki no Ocarina GC Ura (Japan) (GameCube)",
-    "supported": false,
+    "supported": true,
     "formats": ["optical"],
     "region": "NTSC-J",
     "masterQuest": true
@@ -120,7 +120,7 @@
 "2CE2D1A9F0534C9CD9FA04EA5317B80DA21E5E73": {
     "shortName": "NTSC-J GC (Collection)",
     "fullName": "Zelda no Densetsu - Toki no Ocarina (Japan) (GameCube, Zelda Collection)",
-    "supported": false,
+    "supported": true,
     "formats": ["optical"],
     "region": "NTSC-J",
     "masterQuest": false
